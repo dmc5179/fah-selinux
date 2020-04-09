@@ -1,0 +1,33 @@
+policy_module(fah, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type fah_t;
+type fah_exec_t;
+init_daemon_domain(fah_t, fah_exec_t)
+
+type fah_config_t;
+
+permissive fah_t;
+
+########################################
+#
+# fah local policy
+#
+allow fah_t self:capability { setuid };
+allow fah_t self:process { fork setpgid setrlimit signal_perms };
+allow fah_t self:fifo_file rw_fifo_file_perms;
+allow fah_t self:unix_stream_socket create_stream_socket_perms;
+
+domain_use_interactive_fds(fah_t)
+
+files_read_etc_files(fah_t)
+
+auth_use_nsswitch(fah_t)
+
+miscfiles_read_localization(fah_t)
+
+sysnet_dns_name_resolve(fah_t)

@@ -5,5 +5,11 @@ on Red Hat Enterprise Linux and similar systems that use SELinux like CentOS
 
 ## Building the policy module
 
+### Dependencies
+
+ - policycoreutils-devel
+ - rpm-build
+ - make
+
 ## Installing the policy module
 

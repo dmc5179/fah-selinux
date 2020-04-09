@@ -1,0 +1,40 @@
+
+## <summary>policy for fah</summary>
+
+########################################
+## <summary>
+##	Execute fah_exec_t in the fah domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`fah_domtrans',`
+	gen_require(`
+		type fah_t, fah_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, fah_exec_t, fah_t)
+')
+
+######################################
+## <summary>
+##	Execute fah in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`fah_exec',`
+	gen_require(`
+		type fah_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, fah_exec_t)
+')
