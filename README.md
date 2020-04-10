@@ -11,5 +11,15 @@ on Red Hat Enterprise Linux and similar systems that use SELinux like CentOS
  - rpm-build
  - make
 
+```
+   yum install policycoreutils-devel rpm-build make
+```
+
+ Build the policy module
+
+```
+./fah.sh
+```
+
 ## Installing the policy module
 
