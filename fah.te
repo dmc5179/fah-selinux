@@ -1,5 +1,10 @@
 policy_module(fah, 1.0.0)
 
+require {
+  type proc_t;
+  type var_run_t;
+}
+
 ########################################
 #
 # Declarations
@@ -17,10 +22,10 @@ logging_log_file(fah_log_t)
 type fah_tmp_t;
 files_tmp_file(fah_tmp_t)
 
-
 type fah_port_t;
 corenet_port(fah_port_t)
 
+type fah_var_lib_t;
 
 permissive fah_t;
 

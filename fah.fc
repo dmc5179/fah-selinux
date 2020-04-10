@@ -8,3 +8,6 @@
 /usr/share/pixmaps/FAHClient.png		--      gen_context(system_u:object_r:usr_t,s0)
 /etc/fahclient                                  -d      gen_context(system_u:object_r:etc_t,s0)
 /etc/fahclient(/.*)?                            --      gen_context(system_u:object_r:etc_t,s0)
+/var/lib/fahclient                              -d      gen_context(system_u:object_r:fah_var_lib_t,s0)
+/var/lib/fahclient(/.*)?                        --      gen_context(system_u:object_r:fah_var_lib_t,s0)
+
