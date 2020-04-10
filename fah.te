@@ -11,6 +11,16 @@ init_daemon_domain(fah_t, fah_exec_t)
 
 type fah_config_t;
 
+type fah_log_t;
+logging_log_file(fah_log_t)
+
+type fah_tmp_t;
+files_tmp_file(fah_tmp_t)
+
+
+# 36330 tcp
+type fah_port_t;
+
 permissive fah_t;
 
 ########################################
@@ -31,3 +41,19 @@ auth_use_nsswitch(fah_t)
 miscfiles_read_localization(fah_t)
 
 sysnet_dns_name_resolve(fah_t)
+
+#######
+#
+# Defaults are above
+#
+
+
+
+
+#============= fah_t ==============
+allow fah_t proc_t:file { open read };
+allow fah_t self:capability dac_override;
+allow fah_t var_run_t:dir { add_name write };
+
+#!!!! WARNING: 'var_run_t' is a base type.
+allow fah_t var_run_t:file { create lock open read write };
