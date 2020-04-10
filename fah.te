@@ -53,13 +53,15 @@ sysnet_dns_name_resolve(fah_t)
 # Defaults are above
 #
 
-allow fah_t fah_port_t:tcp_socket name_connect;
-
-
 #============= fah_t ==============
 allow fah_t proc_t:file { open read };
 allow fah_t self:capability dac_override;
 allow fah_t var_run_t:dir { add_name write };
+
+allow fah_t fah_port_t:tcp_socket name_connect;
+
+#============= init_t ==============
+allow init_t fah_var_lib_t:dir search;
 
 #!!!! WARNING: 'var_run_t' is a base type.
 allow fah_t var_run_t:file { create lock open read write };
