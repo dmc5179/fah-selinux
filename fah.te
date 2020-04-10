@@ -18,8 +18,9 @@ type fah_tmp_t;
 files_tmp_file(fah_tmp_t)
 
 
-# 36330 tcp
 type fah_port_t;
+corenet_port(fah_port_t)
+
 
 permissive fah_t;
 
@@ -47,7 +48,7 @@ sysnet_dns_name_resolve(fah_t)
 # Defaults are above
 #
 
-
+allow fah_t fah_port_t:tcp_socket name_connect;
 
 
 #============= fah_t ==============

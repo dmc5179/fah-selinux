@@ -41,6 +41,7 @@ install -d %{buildroot}/etc/selinux/targeted/contexts/users/
 
 %post
 semodule -n -i %{_datadir}/selinux/packages/fah.pp
+semanage port -a -t fah_port_t -p tcp 36330
 if /usr/sbin/selinuxenabled ; then
     /usr/sbin/load_policy
     %relabel_files
@@ -50,6 +51,7 @@ exit 0
 
 %postun
 if [ $1 -eq 0 ]; then
+    semanage port -d -p tcp 36330
     semodule -n -r fah
     if /usr/sbin/selinuxenabled ; then
        /usr/sbin/load_policy
