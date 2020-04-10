@@ -40,12 +40,12 @@ fi
 echo "Building and Loading Policy"
 set -x
 make -f /usr/share/selinux/devel/Makefile fah.pp || exit
-/usr/sbin/semodule -i fah.pp
+#/usr/sbin/semodule -i fah.pp
 
 # Generate a man page off the installed module
 sepolicy manpage -p . -d fah_t
 # Fixing the file context on /usr/bin/FAHClient
-/sbin/restorecon -F -R -v /usr/bin/FAHClient
+#/sbin/restorecon -F -R -v /usr/bin/FAHClient
 # Generate a rpm package for the newly generated policy
 
 pwd=$(pwd)
