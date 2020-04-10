@@ -10,4 +10,4 @@
 /etc/fahclient(/.*)?                            --      gen_context(system_u:object_r:etc_t,s0)
 /var/lib/fahclient                              -d      gen_context(system_u:object_r:fah_var_lib_t,s0)
 /var/lib/fahclient(/.*)?                        --      gen_context(system_u:object_r:fah_var_lib_t,s0)
-
+/var/run/fahclient.pid                          --      gen_context(system_u:object_r:fah_var_run_t,s0)
